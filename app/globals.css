@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Default Light Mode Base */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  /* Slate 900 */
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #4f46e5;
+  /* Default to Blue/Indigo */
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  /* Slate 100 */
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  /* Slate 500 */
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  /* Slate 200 */
+  --input: #e2e8f0;
+  --ring: #4f46e5;
+  --radius: 0.5rem;
+
+  /* Default Theme Colors (Blue/Indigo) */
+  --theme-primary: #4f46e5;
+  --theme-gradient-start: #6366f1;
+  --theme-gradient-end: #4338ca;
+  --theme-hover-start: #818cf8;
+  --theme-hover-end: #4f46e5;
+  --theme-text: #4f46e5;
+  --theme-text-dark: #312e81;
+  --theme-shadow: rgba(79, 70, 229, 0.25);
+  --theme-icon-bg: rgba(79, 70, 229, 0.1);
+}
+
+.dark {
+  /* Default Dark Mode Base */
+  --background: #020617;
+  /* Slate 950 */
+  --foreground: #f8fafc;
+  /* Slate 50 */
+  --card: #0f172a;
+  /* Slate 900 */
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  /* Slate 800 */
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  /* Slate 400 */
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f8fafc;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #4f46e5;
+
+  /* Dark Theme Colors (Blue/Indigo) */
+  --theme-primary: #4f46e5;
+  --theme-gradient-start: #6366f1;
+  --theme-gradient-end: #4338ca;
+  --theme-hover-start: #818cf8;
+  --theme-hover-end: #4f46e5;
+  --theme-text: #818cf8;
+  --theme-text-dark: #c7d2fe;
+  --theme-shadow: rgba(79, 70, 229, 0.5);
+  --theme-icon-bg: rgba(79, 70, 229, 0.1);
+}
+
+/* Theme Overrides */
+
+/* Gold Theme */
+[data-theme="gold"] {
+  --primary: #d97706;
+  --ring: #d97706;
+  --theme-primary: #d97706;
+  --theme-gradient-start: #f59e0b;
+  --theme-gradient-end: #b45309;
+  --theme-hover-start: #fbbf24;
+  --theme-hover-end: #d97706;
+  --theme-text: #d97706;
+  --theme-text-dark: #78350f;
+  --theme-shadow: rgba(217, 119, 6, 0.25);
+  --theme-icon-bg: rgba(217, 119, 6, 0.1);
+}
+
+.dark [data-theme="gold"] {
+  --theme-text: #fbbf24;
+  --theme-text-dark: #fcd34d;
+  --theme-shadow: rgba(217, 119, 6, 0.5);
+}
+
+/* Blue Theme (Matches Default/Pixel Pulse) */
+[data-theme="blue"] {
+  --primary: #4f46e5;
+  --ring: #4f46e5;
+  --theme-primary: #4f46e5;
+  --theme-gradient-start: #6366f1;
+  --theme-gradient-end: #4338ca;
+  --theme-hover-start: #818cf8;
+  --theme-hover-end: #4f46e5;
+  --theme-text: #4f46e5;
+  --theme-text-dark: #312e81;
+  --theme-shadow: rgba(79, 70, 229, 0.25);
+  --theme-icon-bg: rgba(79, 70, 229, 0.1);
+}
+
+.dark [data-theme="blue"] {
+  --theme-text: #818cf8;
+  --theme-text-dark: #c7d2fe;
+  --theme-shadow: rgba(79, 70, 229, 0.5);
+}
+
+/* Rose Theme */
+[data-theme="rose"] {
+  --primary: #e11d48;
+  --ring: #e11d48;
+  --theme-primary: #e11d48;
+  --theme-gradient-start: #f43f5e;
+  --theme-gradient-end: #be123c;
+  --theme-hover-start: #fb7185;
+  --theme-hover-end: #e11d48;
+  --theme-text: #e11d48;
+  --theme-text-dark: #881337;
+  --theme-shadow: rgba(225, 29, 72, 0.25);
+  --theme-icon-bg: rgba(225, 29, 72, 0.1);
+}
+
+.dark [data-theme="rose"] {
+  --theme-text: #fb7185;
+  --theme-text-dark: #fecdd3;
+  --theme-shadow: rgba(225, 29, 72, 0.5);
+}
+
+/* Green Theme */
+[data-theme="green"] {
+  --primary: #059669;
+  --ring: #059669;
+  --theme-primary: #059669;
+  --theme-gradient-start: #10b981;
+  --theme-gradient-end: #047857;
+  --theme-hover-start: #34d399;
+  --theme-hover-end: #059669;
+  --theme-text: #059669;
+  --theme-text-dark: #064e3b;
+  --theme-shadow: rgba(5, 150, 105, 0.25);
+  --theme-icon-bg: rgba(5, 150, 105, 0.1);
+}
+
+.dark [data-theme="green"] {
+  --theme-text: #34d399;
+  --theme-text-dark: #a7f3d0;
+  --theme-shadow: rgba(5, 150, 105, 0.5);
+}
+
+@layer base {
+  * {
+    @apply border-[var(--border)];
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+  }
+
+  /* Performance optimizations */
+  .section-container {
+    contain: layout style paint;
+  }
+
+  /* Optimize animations */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.mask-linear-gradient {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
 }
