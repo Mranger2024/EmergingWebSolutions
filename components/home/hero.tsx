@@ -89,9 +89,9 @@ export function Hero() {
 
             {/* Social Sidebar */}
             <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-6 z-40">
-                <SocialLink icon={WhatsappIcon} href="#" />
-                <SocialLink icon={Send} href="#" />
-                <SocialLink icon={Instagram} href="#" />
+                <SocialLink icon={WhatsappIcon} href="https://wa.me/918688440114" />
+                <SocialLink icon={Twitter} href="https://x.com/EmergingWebSol" />
+                <SocialLink icon={Instagram} href="https://www.instagram.com/emergingwebsolutions.in/" />
             </div>
 
             {/* Content */}

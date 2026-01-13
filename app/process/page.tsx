@@ -4,36 +4,46 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from "next/link"
 import { CheckCircle2, MessageSquare, MonitorPlay, PenTool, Rocket, ShieldCheck } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Our Process | How We Build Your Website Risk-Free",
+    description: "Understand our unique 'Pay After Delivery' process. We build your website on our server first, so you can see it before you pay.",
+    openGraph: {
+        title: "Our Process | How We Build Your Website Risk-Free",
+        description: "Understand our unique 'Pay After Delivery' process. We build your website on our server first, so you can see it before you pay.",
+    }
+}
 
 const steps = [
     {
         id: 1,
         title: "Free Consultation",
-        description: "We start with a quick call or chat to understand your business needs. No commitment required.",
+        description: "We start with a quick call or chat to understand your business goals, target audience, and design preferences. We'll discuss features, pages, and any specific requirements you have. No commitment is required at this stage.",
         icon: MessageSquare,
     },
     {
         id: 2,
-        title: "Plan & Wireframe",
-        description: "We propose a structure and design direction based on your industry and goals.",
+        title: "Strategy & Wireframe",
+        description: "Based on our discussion, we create a strategic plan for your website. We outline the site structure, content flow, and key functionalities to ensure everything aligns with your business objectives.",
         icon: PenTool,
     },
     {
         id: 3,
         title: "We Build (Risk-Free)",
-        description: "We build your complete website on our staging server. You don't pay a single rupee yet.",
+        description: "This is where the magic happens. We design and develop your complete website on our staging server. You get to see the progress and experience the site as it comes to life, without paying a single rupee upfront.",
         icon: MonitorPlay,
     },
     {
         id: 4,
         title: "Review & Refine",
-        description: "You get 2 rounds of revisions to make sure everything is perfect.",
+        description: "We work with you to fine-tune the details. You get 2 rounds of revisions to adjust colors, text, images, or layout. We ensure every pixel is perfect and that the site works flawlessly on mobile and desktop.",
         icon: CheckCircle2,
     },
     {
         id: 5,
         title: "Payment & Launch",
-        description: "Once you are 100% happy, you make the payment. We then connect your domain and go live!",
+        description: "Once you are 100% satisfied with the result, you make the payment. We then connect your custom domain, set up your professional email, configure SSL security, and launch your business to the world!",
         icon: Rocket,
     },
 ]
@@ -41,25 +51,48 @@ const steps = [
 const faqs = [
     {
         question: "Is it really 'pay after delivery'?",
-        answer: "Yes! We build the website on our server first. You can see it, click around, and verify everything. You only pay when you want to take it live on your domain.",
+        answer: "Yes! We build the website on our server first. You can see it, click around, and verify everything. You only pay when you want to take it live on your domain. This eliminates all risk for you.",
     },
     {
-        question: "What if I don't like the website?",
-        answer: "If you're not happy after revisions, you can walk away. You don't owe us anything. We take the risk so you don't have to.",
+        question: "What platforms do you use?",
+        answer: "We primarily build on WordPress using premium page builders like Elementor. This ensures your site is easy to manage, SEO-friendly, and scalable. For custom requirements, we can also discuss other technologies.",
     },
     {
         question: "Do I own the website?",
-        answer: "Absolutely. Once you pay, you have 100% ownership of the website, domain, and content. We don't lock you in.",
+        answer: "Absolutely. Once you pay, you have 100% ownership of the website, domain, and content. We provide you with all admin login credentials. We don't lock you in.",
+    },
+    {
+        question: "What about Hosting and Domain?",
+        answer: "Our package includes Free Domain (.com/.in) and Premium SSD Hosting for the first year. From the second year onwards, you'll need to pay a standard renewal fee to keep them active.",
+    },
+    {
+        question: "What if I don't like the website?",
+        answer: "If you're not happy after our revision rounds, you can choose not to proceed. You don't owe us any money. We take the risk so you don't have to.",
     },
     {
         question: "How long does it take?",
-        answer: "Typically 7-10 days from the start of the project to launch, depending on how fast we receive your content.",
+        answer: "Typically 7-10 days from the start of the project to launch, depending on how quickly we receive your content and feedback.",
+    },
+    {
+        question: "Is the website mobile-friendly?",
+        answer: "Yes, all our websites are fully responsive and optimized for mobile, tablet, and desktop devices. This is crucial for SEO and user experience.",
+    },
+    {
+        question: "Will my website appear on Google?",
+        answer: "We set up basic on-page SEO, Google Search Console, and Google Analytics. This gives your site the best chance to rank, but competitive ranking depends on ongoing SEO efforts.",
+    },
+    {
+        question: "Can I update the website myself?",
+        answer: "Yes! Since we use WordPress, you'll have an easy-to-use dashboard where you can edit text, change images, and add blog posts without needing to code.",
     },
 ]
+
+import { FAQSchema } from "@/components/seo/faq-schema"
 
 export default function ProcessPage() {
     return (
         <div className="flex flex-col min-h-screen">
+            <FAQSchema faqs={faqs} />
             <Section className="bg-muted/30 pt-24 pb-12">
                 <div className="text-center max-w-3xl mx-auto">
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">

@@ -4,43 +4,26 @@ import { Section } from "@/components/ui/section"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Our Portfolio | Web Design Examples",
+    description: "See examples of our work. Professional, responsive, and high-converting websites built for Indian businesses.",
+    openGraph: {
+        title: "Our Portfolio | Web Design Examples",
+        description: "See examples of our work. Professional, responsive, and high-converting websites built for Indian businesses.",
+    }
+}
 
 const projects = [
     {
         title: "Smile Dental Clinic",
         category: "Healthcare",
-        description: "A clean, trustworthy website for a local dental clinic with appointment booking integration and service showcase.",
-        image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop",
-        tags: ["Appointment Booking", "Service Catalog", "Local SEO"],
-    },
-    {
-        title: "Urban Bites Restaurant",
-        category: "Food & Dining",
-        description: "Mouth-watering design for a modern restaurant featuring a digital menu, gallery, and table reservation form.",
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
-        tags: ["Digital Menu", "Gallery", "Reservations"],
-    },
-    {
-        title: "FitLife Gym",
-        category: "Fitness",
-        description: "High-energy website for a local gym with class schedules, trainer profiles, and membership inquiry forms.",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
-        tags: ["Class Schedule", "Membership Form", "Blog"],
-    },
-    {
-        title: "Elite Coaching Institute",
-        category: "Education",
-        description: "Professional site for a coaching center with course details, student success stories, and downloadables.",
-        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
-        tags: ["Course Listing", "Student Portal", "Downloads"],
-    },
-    {
-        title: "Green Homes Real Estate",
-        category: "Real Estate",
-        description: "Property listing website with search filters, property details, and agent contact forms.",
-        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
-        tags: ["Property Search", "Image Slider", "Lead Gen"],
-    },
+        description: "A professional presence for a modern dental practice. Features online appointment booking, service catalog, and doctor profiles.",
+        image: "/projects/clinic_screenshot.png",
+        tags: ["Healthcare", "Appointment Booking", "Responsive Design"],
+        link: "https://clinic-taupe-omega.vercel.app/"
+    }
 ]
 
 export default function PortfolioPage() {
@@ -52,13 +35,13 @@ export default function PortfolioPage() {
                         Our Work
                     </h1>
                     <p className="text-lg text-muted-foreground">
-                        Check out some of our recent projects and demo sites. We build websites that look great and convert visitors into customers.
+                        Check out our latest work. We build websites that look great and convert visitors into customers.
                     </p>
                 </div>
             </Section>
 
             <Section>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                     {projects.map((project) => (
                         <Card key={project.title} className="overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
                             <div className="aspect-video w-full overflow-hidden bg-muted relative group">
@@ -68,9 +51,11 @@ export default function PortfolioPage() {
                                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <Button variant="secondary" className="gap-2">
-                                        <ExternalLink className="h-4 w-4" />
-                                        View Demo
+                                    <Button variant="secondary" className="gap-2" asChild>
+                                        <Link href={project.link} target="_blank">
+                                            <ExternalLink className="h-4 w-4" />
+                                            View Demo
+                                        </Link>
                                     </Button>
                                 </div>
                             </div>

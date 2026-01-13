@@ -33,7 +33,7 @@ export default function ContactPage() {
                                     </div>
                                     <div className="space-y-2">
                                         <Label htmlFor="phone">WhatsApp Number</Label>
-                                        <Input id="phone" placeholder="+91 98765 43210" required />
+                                        <Input id="phone" placeholder="8688440114" required />
                                     </div>
                                 </div>
 
@@ -86,7 +86,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold">Phone / WhatsApp</h3>
-                                        <p className="text-muted-foreground">+91 98765 43210</p>
+                                        <p className="text-muted-foreground">8688440114</p>
                                     </div>
                                 </div>
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold">Email</h3>
-                                        <p className="text-muted-foreground">hello@webdevagency.com</p>
+                                        <p className="text-muted-foreground">emergingwebsolutions@gmail.com</p>
                                     </div>
                                 </div>
 
@@ -107,8 +107,9 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="font-semibold">Office</h3>
                                         <p className="text-muted-foreground">
-                                            123, Tech Park, Sector 5<br />
-                                            Bangalore, Karnataka 560001
+                                            G D complex, opp. R T C,<br />
+                                            A B M Compound, bustand,<br />
+                                            Kavali, Andhra Pradesh 524201
                                         </p>
                                     </div>
                                 </div>

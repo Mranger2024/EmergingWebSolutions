@@ -240,10 +240,10 @@ CREATE TRIGGER update_settings_updated_at BEFORE UPDATE ON settings FOR EACH ROW
 -- Insert default settings
 INSERT INTO settings (business_name, email, phone, address, pricing, notifications)
 VALUES (
-  'Web Solutions',
-  'contact@websolutions.com',
-  '+91 98765 43200',
-  'India',
+  'Emerging Web Solutions',
+  'emergingwebsolutions@gmail.com',
+  '8688440114',
+  'G D complex, opp. R T C, A B M Compound, bustand, Kavali, Andhra Pradesh 524201',
   '{"starter": 14999, "professional": 25000, "enterprise": 50000}'::jsonb,
   '{"emailOnNewProject": true, "emailOnProjectComplete": true}'::jsonb
 );

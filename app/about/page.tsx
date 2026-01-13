@@ -31,7 +31,7 @@ export default function AboutPage() {
             <Section className="bg-muted/30 pt-24 pb-12">
                 <div className="text-center max-w-3xl mx-auto">
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-                        About WebDevAgency
+                        About Emerging Web Solutions
                     </h1>
                     <p className="text-lg text-muted-foreground">
                         We are a team of passionate developers and designers on a mission to help Indian small businesses go online without the risk.
@@ -45,7 +45,7 @@ export default function AboutPage() {
                         <h2 className="text-3xl font-bold mb-6">Our Story</h2>
                         <div className="space-y-4 text-muted-foreground text-lg">
                             <p>
-                                We started WebDevAgency because we saw a problem. Small business owners were getting burned by freelancers who took advance payments and disappeared, or agencies that charged exorbitant fees for simple websites.
+                                We started Emerging Web Solutions because we saw a problem. Small business owners were getting burned by freelancers who took advance payments and disappeared, or agencies that charged exorbitant fees for simple websites.
                             </p>
                             <p>
                                 We wanted to change that. We asked ourselves: "What if we took all the risk?"

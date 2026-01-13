@@ -1,48 +1,63 @@
+
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+    const baseUrl = 'https://emergingwebsolutions.in'
+
     return [
         {
-            url: 'https://webdevagency.com',
+            url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: 'yearly',
+            changeFrequency: 'weekly',
             priority: 1,
         },
         {
-            url: 'https://webdevagency.com/services',
+            url: `${baseUrl}/services`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/portfolio`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://webdevagency.com/portfolio',
+            url: `${baseUrl}/process`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://webdevagency.com/process',
+            url: `${baseUrl}/about`,
             lastModified: new Date(),
-            changeFrequency: 'yearly',
+            changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
-            url: 'https://webdevagency.com/why-us',
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 0.7,
-        },
-        {
-            url: 'https://webdevagency.com/about',
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 0.6,
-        },
-        {
-            url: 'https://webdevagency.com/contact',
+            url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/privacy`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5,
+        },
+        {
+            url: `${baseUrl}/terms`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5,
+        },
+        {
+            url: `${baseUrl}/refund`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5,
         },
     ]
 }

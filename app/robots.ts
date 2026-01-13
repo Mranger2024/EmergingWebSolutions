@@ -1,3 +1,4 @@
+
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -5,8 +6,8 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/admin/',
+            disallow: '/private/',
         },
-        sitemap: 'https://webdevagency.com/sitemap.xml',
+        sitemap: 'https://emergingwebsolutions.in/sitemap.xml',
     }
 }

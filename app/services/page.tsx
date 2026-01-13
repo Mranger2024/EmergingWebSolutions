@@ -4,21 +4,36 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Section } from "@/components/ui/section"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Web Design Services & Pricing | Emerging Web Solutions",
+    description: "Affordable web design packages starting at ₹14,999. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
+    openGraph: {
+        title: "Web Design Services & Pricing | Emerging Web Solutions",
+        description: "Affordable web design packages starting at ₹14,999. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
+    }
+}
 
 const mainPackageFeatures = [
     "Custom WordPress Website (Up to 10 Pages)",
-    "1 Year Domain Name (.com / .in)",
-    "1 Year Premium Hosting (SSD, Fast Loading)",
-    "Free SSL Certificate (HTTPS)",
-    "Mobile Responsive Design",
+    "1 Year Domain Name (.com / .in) included",
+    "1 Year Premium SSD Hosting included",
+    "Free SSL Certificate (HTTPS) for security",
+    "Mobile Responsive Design (Works on all devices)",
     "Blog Setup + 3 SEO-Friendly Posts",
     "Google Search Console & Analytics Setup",
-    "Google Business Profile Setup",
-    "Contact Form & WhatsApp Integration",
-    "Social Media Links",
-    "Basic On-Page SEO",
-    "2 Rounds of Revisions",
-    "14 Days Post-Launch Support",
+    "Google Business Profile Creation/Optimization",
+    "Contact Form & WhatsApp Chat Integration",
+    "Social Media Profile Integration",
+    "Basic On-Page SEO (Meta tags, Titles, Descriptions)",
+    "Image Optimization for Fast Loading",
+    "Speed Optimization (Caching & Minification)",
+    "User-Friendly Admin Dashboard",
+    "2 Rounds of Design Revisions",
+    "14 Days Free Post-Launch Support",
+    "Premium Security Plugin Setup",
+    "XML Sitemap Generation",
 ]
 
 const addOns = [
@@ -42,31 +57,7 @@ const addOns = [
     },
 ]
 
-const maintenancePlans = [
-    {
-        name: "Basic Maintenance",
-        price: "₹499",
-        unit: "/month",
-        features: [
-            "Monthly Full Site Backup",
-            "Plugin & Theme Updates",
-            "Security Monitoring",
-            "Uptime Monitoring",
-        ],
-    },
-    {
-        name: "Pro Maintenance",
-        price: "₹999",
-        unit: "/month",
-        features: [
-            "Everything in Basic",
-            "Weekly Backups",
-            "Small Text/Image Edits (up to 2 hrs)",
-            "Priority Support",
-            "Monthly Performance Report",
-        ],
-    },
-]
+
 
 export default function ServicesPage() {
     return (
@@ -79,6 +70,55 @@ export default function ServicesPage() {
                     <p className="text-lg text-muted-foreground">
                         No hidden fees. No surprises. Just a professional website that grows your business.
                     </p>
+                </div>
+            </Section>
+
+            {/* Value Proposition Detail */}
+            <Section className="pb-12">
+                <div className="max-w-4xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 className="text-3xl font-bold mb-6">Why this package is perfect for <span className="text-blue-500">Growth</span></h2>
+                            <div className="space-y-6">
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-2">1. Professional Design, Not Templates</h3>
+                                    <p className="text-muted-foreground">We don't just copy-paste. We design a unique website that matches your brand identity and appeals to your specific target audience.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-2">2. Built for Google (SEO Ready)</h3>
+                                    <p className="text-muted-foreground">A pretty website is useless if no one finds it. We structure your site with proper H1 tags, meta descriptions, and clean code so Google loves it.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-2">3. Speed & Security Included</h3>
+                                    <p className="text-muted-foreground">Slow sites lose customers. We host your site on premium SSD servers and secure it with SSL to ensure it loads fast and stays safe.</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-2">4. You Own Everything</h3>
+                                    <p className="text-muted-foreground">Unlike Wix or Shopify where you rent your site, with us, you own your domain, hosting account, and all website files. You have full control.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800">
+                            <h3 className="text-xl font-bold mb-4 text-white">What happens after 1 year?</h3>
+                            <p className="text-slate-400 mb-6">
+                                Transparency is our core value. The ₹14,999 price covers everything for the first 12 months.
+                            </p>
+                            <ul className="space-y-4">
+                                <li className="flex gap-3 text-slate-300">
+                                    <div className="h-6 w-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">1</div>
+                                    <span><strong>Domain Renewal:</strong> Approx. ₹1,000 / year (paid to provider)</span>
+                                </li>
+                                <li className="flex gap-3 text-slate-300">
+                                    <div className="h-6 w-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">2</div>
+                                    <span><strong>Hosting Renewal:</strong> Approx. ₹3,000 - ₹4,000 / year (paid to provider)</span>
+                                </li>
+                                <li className="flex gap-3 text-slate-300">
+                                    <div className="h-6 w-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">3</div>
+                                    <span><strong>Our Support:</strong> Optional. You can manage it yourself or hire us for maintenance.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </Section>
 
@@ -144,45 +184,7 @@ export default function ServicesPage() {
                 </div>
             </Section>
 
-            {/* Maintenance Plans */}
-            <Section>
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-4">Peace of Mind Maintenance</h2>
-                    <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        You don't *have* to pay us monthly. But if you want us to handle updates and security, we've got you covered.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {maintenancePlans.map((plan) => (
-                            <Card key={plan.name} className={plan.name.includes("Pro") ? "border-primary shadow-md" : ""}>
-                                <CardHeader>
-                                    <div className="flex justify-between items-center">
-                                        <CardTitle>{plan.name}</CardTitle>
-                                        {plan.name.includes("Pro") && <Badge>Recommended</Badge>}
-                                    </div>
-                                    <div className="text-3xl font-bold mt-2">
-                                        {plan.price} <span className="text-sm font-normal text-muted-foreground">{plan.unit}</span>
-                                    </div>
-                                </CardHeader>
-                                <CardContent>
-                                    <ul className="space-y-3">
-                                        {plan.features.map((feature) => (
-                                            <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                <Check className="h-4 w-4 text-[var(--theme-text)] dark:text-[var(--theme-text-dark)]" />
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button variant={plan.name.includes("Pro") ? "default" : "outline"} className="w-full" asChild>
-                                        <Link href="/contact">Choose Plan</Link>
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </Section>
+            {/* Maintenance Plans Removed as per request */}
         </div>
     )
 }

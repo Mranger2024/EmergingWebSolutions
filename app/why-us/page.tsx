@@ -69,7 +69,7 @@ export default function WhyUsPage() {
                             <tr>
                                 <th className="p-4 border-b-2 border-muted bg-muted/10 w-1/4">Feature</th>
                                 <th className="p-4 border-b-2 border-[var(--theme-primary)] bg-[var(--theme-icon-bg)] w-1/4 text-[var(--theme-text)] dark:text-[var(--theme-text-dark)] font-bold text-lg">
-                                    WebDevAgency
+                                    Emerging Web Solutions
                                 </th>
                                 <th className="p-4 border-b-2 border-muted w-1/4 text-muted-foreground">Typical Freelancer</th>
                                 <th className="p-4 border-b-2 border-muted w-1/4 text-muted-foreground">Big Agency</th>

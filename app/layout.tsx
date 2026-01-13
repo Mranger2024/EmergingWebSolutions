@@ -13,11 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web Solutions | Professional Websites for ₹14,999",
+  metadataBase: new URL('https://emergingwebsolutions.in'),
+  title: "Emerging Web Solutions | Professional Websites for ₹14,999",
   description: "Get a custom WordPress website with domain, hosting, and SSL for just ₹14,999. Pay only after you are 100% happy. Ideal for small businesses in India.",
   keywords: ["web design", "wordpress agency", "website development", "small business website", "pay after delivery"],
   openGraph: {
-    title: "Web Solutions | Professional Websites for ₹14,999",
+    title: "Emerging Web Solutions | Professional Websites for ₹14,999",
     description: "Risk-free website development. We build first, you pay later.",
     type: "website",
     locale: "en_IN",
@@ -30,6 +31,8 @@ import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MadeInIndiaBadge } from "@/components/ui/made-in-india-badge";
 
+import { StructuredData } from "@/components/seo/structured-data";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,6 +44,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider defaultTheme="blue" defaultMode="dark" storageKey="webdevagency-theme">
+          <StructuredData />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

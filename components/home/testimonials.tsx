@@ -4,27 +4,27 @@ import { Star } from "lucide-react"
 
 const testimonials = [
     {
-        body: "I was skeptical about the 'pay later' model, but it was genuine. The team built a fantastic site for my clinic.",
+        body: "I was skeptical about the 'pay later' model, but it was genuine. The team built a fantastic site for my dental clinic in Hyderabad. Highly recommended!",
         author: {
-            name: "Dr. Rajesh Kumar",
+            name: "Dr. Suresh Reddy",
             handle: "Dental Clinic Owner",
-            imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            imageUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
         },
     },
     {
-        body: "The ₹12k package is a steal. I got everything I needed to start my consulting business online.",
+        body: "The ₹14,999 package is perfect for startups. I got a professional website for my boutique without burning a hole in my pocket. Great support too.",
         author: {
-            name: "Sarah Jenkins",
-            handle: "Business Consultant",
-            imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            name: "Anjali Mehta",
+            handle: "Fashion Boutique Owner",
+            imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
         },
     },
     {
-        body: "Professional, fast, and very responsive. They handled the domain and hosting setup perfectly.",
+        body: "Very professional and responsive. They handled everything from domain registration to hosting for my restaurant. I didn't have to worry about a thing.",
         author: {
-            name: "Amit Patel",
-            handle: "Retail Store Owner",
-            imageUrl: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            name: "Vikram Singh",
+            handle: "Restaurant Owner",
+            imageUrl: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
         },
     },
 ]
@@ -56,7 +56,7 @@ export function Testimonials() {
                                 <img
                                     className="h-10 w-10 rounded-full bg-muted"
                                     src={testimonial.author.imageUrl}
-                                    alt=""
+                                    alt={`Photo of ${testimonial.author.name}, ${testimonial.author.handle}`}
                                 />
                                 <div>
                                     <div className="font-semibold text-foreground">{testimonial.author.name}</div>

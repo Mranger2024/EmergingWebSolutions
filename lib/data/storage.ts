@@ -91,10 +91,10 @@ const INITIAL_CLIENTS: Client[] = [
 ]
 
 const INITIAL_SETTINGS: Settings = {
-    businessName: 'Web Solutions',
-    email: 'contact@websolutions.com',
-    phone: '+91 98765 43200',
-    address: 'India',
+    businessName: 'Emerging Web Solutions',
+    email: 'emergingwebsolutions@gmail.com',
+    phone: '8688440114',
+    address: 'G D complex, opp. R T C, A B M Compound, bustand, Kavali, Andhra Pradesh 524201',
     pricing: {
         starter: 14999,
         professional: 25000,
