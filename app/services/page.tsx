@@ -8,14 +8,14 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
     title: "Web Design Services & Pricing | Emerging Web Solutions",
-    description: "Affordable web design packages starting at ₹14,999. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
+    description: "Affordable web design packages starting at ₹9,999. Choose from Essential or Starter Growth packages. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
     openGraph: {
         title: "Web Design Services & Pricing | Emerging Web Solutions",
-        description: "Affordable web design packages starting at ₹14,999. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
+        description: "Affordable web design packages starting at ₹9,999. Choose from Essential or Starter Growth packages. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
     }
 }
 
-const mainPackageFeatures = [
+const basicPackageFeatures = [
     "Custom WordPress Website (Up to 10 Pages)",
     "1 Year Domain Name (.com / .in) included",
     "1 Year Premium SSD Hosting included",
@@ -29,11 +29,43 @@ const mainPackageFeatures = [
     "Basic On-Page SEO (Meta tags, Titles, Descriptions)",
     "Image Optimization for Fast Loading",
     "Speed Optimization (Caching & Minification)",
-    "User-Friendly Admin Dashboard",
     "2 Rounds of Design Revisions",
     "14 Days Free Post-Launch Support",
     "Premium Security Plugin Setup",
     "XML Sitemap Generation",
+]
+
+const mainPackageStandardFeatures = [
+    "Custom WordPress Website (Up to 10 Pages)",
+    "1 Year Domain Name (.com / .in) included",
+    "1 Year Premium SSD Hosting included",
+    "Free SSL Certificate (HTTPS) for security",
+    "Mobile Responsive Design (Works on all devices)",
+    "Blog Setup + 3 SEO-Friendly Posts",
+    "Google Search Console & Analytics Setup",
+    "Google Business Profile Creation/Optimization",
+    "Contact Form & WhatsApp Chat Integration",
+    "Social Media Profile Integration",
+    "Basic On-Page SEO (Meta tags, Titles, Descriptions)",
+    "Image Optimization for Fast Loading",
+    "Speed Optimization (Caching & Minification)",
+    "2 Rounds of Design Revisions",
+    "14 Days Free Post-Launch Support",
+    "Premium Security Plugin Setup",
+    "XML Sitemap Generation",
+]
+
+const mainPackagePremiumFeatures = [
+    {
+        name: "Advanced Business Management System",
+        description: "Complete admin dashboard to manage your business operations, track inquiries, and monitor performance",
+        isPremium: true
+    },
+    {
+        name: "Appointment Booking System",
+        description: "Automated online booking system with calendar integration, email notifications, and customer management",
+        isPremium: true
+    },
 ]
 
 const addOns = [
@@ -122,38 +154,94 @@ export default function ServicesPage() {
                 </div>
             </Section>
 
-            {/* Main Package */}
+            {/* Pricing Packages */}
             <Section>
-                <div className="max-w-4xl mx-auto">
-                    <Card className="border-primary shadow-xl overflow-hidden">
-                        <div className="bg-gradient-to-r from-[var(--theme-gradient-start)] to-[var(--theme-gradient-end)] p-6 text-center text-slate-900">
-                            <h2 className="text-2xl font-bold">Starter Growth Package</h2>
-                            <p className="opacity-90 mt-2">Everything you need to get online professionally</p>
-                        </div>
-                        <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            <div className="lg:col-span-2">
-                                <h3 className="font-semibold text-lg mb-4">What's Included:</h3>
-                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {mainPackageFeatures.map((feature) => (
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-12">Choose Your Package</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Basic Package */}
+                        <Card className="border-slate-700 shadow-xl overflow-hidden">
+                            <div className="bg-gradient-to-r from-slate-700 to-slate-600 p-6 text-center text-white">
+                                <h3 className="text-2xl font-bold">Essential Package</h3>
+                                <p className="opacity-90 mt-2">Perfect for small businesses</p>
+                            </div>
+                            <div className="p-8">
+                                <div className="text-center mb-6">
+                                    <div className="text-4xl font-bold text-foreground">₹9,999</div>
+                                    <div className="text-muted-foreground text-sm">All-inclusive for 1st year</div>
+                                </div>
+                                <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
+                                <ul className="space-y-3 mb-6">
+                                    {basicPackageFeatures.map((feature) => (
                                         <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
                                             <Check className="h-5 w-5 text-[var(--theme-text)] dark:text-[var(--theme-text-dark)] shrink-0" />
                                             {feature}
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div className="flex flex-col justify-center items-center text-center lg:border-l lg:pl-8">
-                                <div className="text-4xl font-bold text-foreground">₹14,999</div>
-                                <div className="text-muted-foreground text-sm mb-6">All-inclusive for 1st year</div>
-                                <Button size="lg" className="w-full" asChild>
+                                <Button size="lg" className="w-full" variant="outline" asChild>
                                     <Link href="/contact">Get Started</Link>
                                 </Button>
-                                <p className="text-xs text-muted-foreground mt-4">
+                                <p className="text-xs text-muted-foreground mt-4 text-center">
                                     Pay only after you approve the design.
                                 </p>
                             </div>
-                        </div>
-                    </Card>
+                        </Card>
+
+                        {/* Premium Package */}
+                        <Card className="border-primary shadow-xl overflow-hidden relative">
+                            <div className="absolute top-4 right-4 z-10">
+                                <Badge className="bg-blue-500 text-white">Most Popular</Badge>
+                            </div>
+                            <div className="bg-gradient-to-r from-[var(--theme-gradient-start)] to-[var(--theme-gradient-end)] p-6 text-center text-slate-900">
+                                <h3 className="text-2xl font-bold">Starter Growth Package</h3>
+                                <p className="opacity-90 mt-2">Everything you need to get online professionally</p>
+                            </div>
+                            <div className="p-8">
+                                <div className="text-center mb-6">
+                                    <div className="text-4xl font-bold text-foreground">₹14,999</div>
+                                    <div className="text-muted-foreground text-sm">All-inclusive for 1st year</div>
+                                </div>
+                                <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
+
+                                {/* Premium Features Highlight */}
+                                <div className="mb-6 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <Badge className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">Premium Features</Badge>
+                                    </div>
+                                    <ul className="space-y-4">
+                                        {mainPackagePremiumFeatures.map((feature) => (
+                                            <li key={feature.name} className="">
+                                                <div className="flex items-start gap-2">
+                                                    <Check className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
+                                                    <div>
+                                                        <div className="font-semibold text-foreground">{feature.name}</div>
+                                                        <div className="text-xs text-muted-foreground mt-1">{feature.description}</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* Standard Features */}
+                                <ul className="space-y-3 mb-6">
+                                    {mainPackageStandardFeatures.map((feature) => (
+                                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                            <Check className="h-5 w-5 text-[var(--theme-text)] dark:text-[var(--theme-text-dark)] shrink-0" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Button size="lg" className="w-full" asChild>
+                                    <Link href="/contact">Get Started</Link>
+                                </Button>
+                                <p className="text-xs text-muted-foreground mt-4 text-center">
+                                    Pay only after you approve the design.
+                                </p>
+                            </div>
+                        </Card>
+                    </div>
                 </div>
             </Section>
 
