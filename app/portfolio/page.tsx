@@ -22,7 +22,7 @@ const projects = [
         description: "A professional presence for a modern dental practice. Features online appointment booking, service catalog, and doctor profiles.",
         image: "/projects/clinic_screenshot.png",
         tags: ["Healthcare", "Appointment Booking", "Responsive Design"],
-        link: "https://clinic-taupe-omega.vercel.app/"
+        link: "https://clinictemp.vercel.app/"
     }
 ]
 
