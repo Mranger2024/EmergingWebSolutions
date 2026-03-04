@@ -1,19 +1,16 @@
+'use client'
+
 import { Check, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Section } from "@/components/ui/section"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Metadata } from "next"
+import { usePricing } from "@/contexts/pricing-context"
 
-export const metadata: Metadata = {
-    title: "Web Design Services & Pricing | Emerging Web Solutions",
-    description: "Affordable web design packages starting at ₹9,999. Choose from Essential or Starter Growth packages. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
-    openGraph: {
-        title: "Web Design Services & Pricing | Emerging Web Solutions",
-        description: "Affordable web design packages starting at ₹9,999. Choose from Essential or Starter Growth packages. Includes domain, hosting, SEO, and professional design. Transparency guaranteed.",
-    }
-}
+// Note: metadata moved out of this client component
+// Metadata is handled at the layout level for this route
+
 
 const basicPackageFeatures = [
     "Custom WordPress Website (Up to 10 Pages)",
@@ -92,6 +89,7 @@ const addOns = [
 
 
 export default function ServicesPage() {
+    const { formatPrice } = usePricing()
     return (
         <div className="flex flex-col min-h-screen">
             <Section className="bg-muted/30 pt-24 pb-12">
@@ -167,7 +165,7 @@ export default function ServicesPage() {
                             </div>
                             <div className="p-8">
                                 <div className="text-center mb-6">
-                                    <div className="text-4xl font-bold text-foreground">₹9,999</div>
+                                    <div className="text-4xl font-bold text-foreground">{formatPrice(9999)}</div>
                                     <div className="text-muted-foreground text-sm">All-inclusive for 1st year</div>
                                 </div>
                                 <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
@@ -199,7 +197,7 @@ export default function ServicesPage() {
                             </div>
                             <div className="p-8">
                                 <div className="text-center mb-6">
-                                    <div className="text-4xl font-bold text-foreground">₹14,999</div>
+                                    <div className="text-4xl font-bold text-foreground">{formatPrice(14999)}</div>
                                     <div className="text-muted-foreground text-sm">All-inclusive for 1st year</div>
                                 </div>
                                 <h4 className="font-semibold text-lg mb-4">What's Included:</h4>

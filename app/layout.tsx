@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-
 import { ThemeProvider } from "@/components/theme-provider";
 import { MadeInIndiaBadge } from "@/components/ui/made-in-india-badge";
-
 import { StructuredData } from "@/components/seo/structured-data";
+import { PostHogProvider } from "@/components/providers/posthog-provider";
+import { PricingProvider } from "@/contexts/pricing-context";
 
 export default function RootLayout({
   children,
@@ -43,13 +43,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <ThemeProvider defaultTheme="blue" defaultMode="dark" storageKey="webdevagency-theme">
-          <StructuredData />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <MadeInIndiaBadge />
-        </ThemeProvider>
+        <PostHogProvider>
+          <PricingProvider>
+            <ThemeProvider defaultTheme="blue" defaultMode="dark" storageKey="webdevagency-theme">
+              <StructuredData />
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <MadeInIndiaBadge />
+            </ThemeProvider>
+          </PricingProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

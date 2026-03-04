@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,8 @@ import Link from "next/link"
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { usePricing } from "@/contexts/pricing-context"
+import { trackPricingView, trackPricingDetailsClick } from "@/components/providers/posthog-provider"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger)
@@ -39,11 +41,19 @@ const premiumPackageFeatures = [
 ]
 
 export function PackageSnapshot() {
+    const { formatPrice, isLoading, currency } = usePricing()
     const sectionRef = useRef<HTMLDivElement>(null)
     const basicCardRef = useRef<HTMLDivElement>(null)
     const premiumCardRef = useRef<HTMLDivElement>(null)
     const basicFeaturesRef = useRef<(HTMLLIElement | null)[]>([])
     const premiumFeaturesRef = useRef<(HTMLLIElement | null)[]>([])
+
+    // Fire pricing analytics once currency is known
+    useEffect(() => {
+        if (isLoading) return
+        trackPricingView('Essential Package', 9999, currency)
+        trackPricingView('Starter Growth Package', 14999, currency)
+    }, [isLoading, currency])
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -140,7 +150,7 @@ export function PackageSnapshot() {
                         <div className="p-6 lg:p-8 flex flex-col justify-center bg-muted/30 lg:border-r">
                             <h3 className="text-2xl font-bold text-foreground">Essential Package</h3>
                             <div className="mt-4 flex items-baseline text-foreground">
-                                <span className="text-5xl font-extrabold tracking-tight">₹9,999</span>
+                                <span className="text-5xl font-extrabold tracking-tight">{formatPrice(9999)}</span>
                                 <span className="ml-1 text-xl font-semibold text-muted-foreground">/one-time</span>
                             </div>
                             <p className="mt-4 text-muted-foreground">
@@ -190,7 +200,7 @@ export function PackageSnapshot() {
                         <div className="p-6 lg:p-8 flex flex-col justify-center bg-muted/30 lg:border-r">
                             <h3 className="text-2xl font-bold text-foreground">Starter Growth Package</h3>
                             <div className="mt-4 flex items-baseline text-foreground">
-                                <span className="text-5xl font-extrabold tracking-tight">₹14,999</span>
+                                <span className="text-5xl font-extrabold tracking-tight">{formatPrice(14999)}</span>
                                 <span className="ml-1 text-xl font-semibold text-muted-foreground">/one-time</span>
                             </div>
                             <p className="mt-4 text-muted-foreground">
