@@ -23,6 +23,14 @@ const projects = [
         image: "/projects/clinic_screenshot.png",
         tags: ["Healthcare", "Appointment Booking", "Responsive Design"],
         link: "https://clinictemp.vercel.app/"
+    },
+    {
+        title: "Roundkart",
+        category: "E-commerce & B2B",
+        description: "Supply Chain Solutions for Modern Enterprise. A comprehensive B2B procurement platform for hotels, hospitals, and developers.",
+        image: "/projects/roundkart_screenshot.png",
+        tags: ["B2B E-commerce", "Supply Chain", "Enterprise"],
+        link: "https://roundkart.com/"
     }
 ]
 
@@ -43,41 +51,43 @@ export default function PortfolioPage() {
             <Section>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                     {projects.map((project) => (
-                        <Card key={project.title} className="overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
-                            <div className="aspect-video w-full overflow-hidden bg-muted relative group">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <Button variant="secondary" className="gap-2" asChild>
-                                        <Link href={project.link} target="_blank">
+                        <Link key={project.title} href={project.link} target="_blank" className="block group">
+                            <Card className="overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-300 border-primary/10 hover:border-primary/30">
+                                <div className="aspect-video w-full overflow-hidden bg-muted relative">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <div className="flex items-center gap-2 bg-white/90 text-black px-4 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform">
                                             <ExternalLink className="h-4 w-4" />
-                                            View Demo
-                                        </Link>
-                                    </Button>
+                                            Visit Site
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <CardHeader>
-                                <div className="flex justify-between items-start mb-2">
-                                    <Badge variant="secondary">{project.category}</Badge>
-                                </div>
-                                <CardTitle className="text-xl">{project.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="flex-grow">
-                                <p className="text-muted-foreground text-sm mb-4">
-                                    {project.description}
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                    {project.tags.map((tag) => (
-                                        <span key={tag} className="text-xs bg-muted px-2 py-1 rounded-md text-muted-foreground">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
+                                <CardHeader>
+                                    <div className="flex justify-between items-start mb-2">
+                                        <Badge variant="secondary" className="bg-primary/5 text-primary border-primary/10 hover:bg-primary/10">
+                                            {project.category}
+                                        </Badge>
+                                    </div>
+                                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex-grow">
+                                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                                        {project.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tags.map((tag) => (
+                                            <span key={tag} className="text-[10px] uppercase tracking-wider font-semibold bg-muted/50 px-2 py-0.5 rounded text-muted-foreground/80">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </Link>
                     ))}
                 </div>
             </Section>
