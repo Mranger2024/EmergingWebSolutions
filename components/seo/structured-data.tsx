@@ -2,12 +2,27 @@
 import Script from "next/script";
 
 export function StructuredData() {
-    const structuredData = {
+    const baseUrl = "https://emergingwebsolutions.in";
+    
+    const organizationSchema = {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "Organization",
         "name": "Emerging Web Solutions",
-        "image": "https://emergingwebsolutions.in/logo.png",
-        "url": "https://emergingwebsolutions.in",
+        "url": baseUrl,
+        "logo": `${baseUrl}/logo.png`,
+        "sameAs": [
+            "https://www.instagram.com/emergingwebsolutions.in/",
+            "https://x.com/EmergingWebSol",
+            "https://wa.me/918688440114"
+        ]
+    };
+
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Emerging Web Solutions",
+        "image": `${baseUrl}/logo.png`,
+        "url": baseUrl,
         "telephone": "+91-8688440114",
         "email": "emergingwebsolutions@gmail.com",
         "address": {
@@ -21,34 +36,25 @@ export function StructuredData() {
         "geo": {
             "@type": "GeoCoordinates",
             "latitude": 14.913182,
-            "longitude": 79.992980 // Approx for Kavali
+            "longitude": 79.992980
         },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            ],
-            "opens": "09:00",
-            "closes": "20:00"
-        },
-        "priceRange": "₹14,999",
-        "sameAs": [
-            "https://www.instagram.com/emergingwebsolutions.in/",
-            "https://x.com/EmergingWebSol",
-            "https://wa.me/918688440114"
-        ]
+        "priceRange": "₹9,999 - ₹14,999",
+        "areaServed": "Worldwide",
+        "description": "Global web development agency specializing in professional WordPress websites. We build your website demo first, you pay only after you are 100% satisfied."
     };
 
     return (
-        <Script
-            id="structured-data"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <>
+            <Script
+                id="organization-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+            />
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
+        </>
     );
 }

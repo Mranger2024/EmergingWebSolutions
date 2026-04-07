@@ -1,16 +1,15 @@
-'use client'
+"use client"
 
-import { Check, Plus } from "lucide-react"
+import * as React from "react"
+import { Check, Plus, Sparkles, Zap, Shield, Globe, Award, MousePointer2, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Section } from "@/components/ui/section"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { usePricing } from "@/contexts/pricing-context"
-
-// Note: metadata moved out of this client component
-// Metadata is handled at the layout level for this route
-
+import InteractiveGrid from "@/components/ui/InteractiveGrid"
 
 const basicPackageFeatures = [
     "Custom WordPress Website (Up to 10 Pages)",
@@ -71,206 +70,311 @@ const addOns = [
         price: "₹800 - ₹1,000",
         unit: "per page",
         description: "Need more than 10 pages? We can add as many as you need.",
+        icon: Plus
     },
     {
         name: "WooCommerce Setup",
         price: "₹4,000 - ₹6,000",
         unit: "one-time",
         description: "Turn your site into an online store with product listings and cart.",
+        icon: Zap
     },
     {
         name: "Logo Design",
         price: "₹1,500",
         unit: "one-time",
         description: "Professional logo design if you don't have one yet.",
+        icon: Award
     },
 ]
 
-
+const valueBlock = [
+    {
+        title: "Professional Design",
+        desc: "Custom-crafted digital experiences that align with your brand identity and resonate with global audiences.",
+        icon: MousePointer2,
+        color: "blue"
+    },
+    {
+        title: "AI & SEO Ready",
+        desc: "Optimized for machines and humans. From Google semantic code to AI agent structured data.",
+        icon: Sparkles,
+        color: "amber"
+    },
+    {
+        title: "Global Performance",
+        desc: "SSD infrastructure and localized CDNs ensure lightning-fast speeds and security worldwide.",
+        icon: Globe,
+        color: "indigo"
+    },
+    {
+        title: "Complete Ownership",
+        desc: "100% asset ownership. No vendor lock-in. Domain, hosting, and code are yours from day one.",
+        icon: Shield,
+        color: "green"
+    }
+]
 
 export default function ServicesPage() {
     const { formatPrice } = usePricing()
+
     return (
-        <div className="flex flex-col min-h-screen">
-            <Section className="bg-muted/30 pt-24 pb-12">
-                <div className="text-center max-w-3xl mx-auto">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-                        Simple, Transparent Pricing
-                    </h1>
-                    <p className="text-lg text-muted-foreground">
-                        No hidden fees. No surprises. Just a professional website that grows your business.
-                    </p>
+        <div className="flex flex-col min-h-screen bg-background">
+            {/* Hero Section */}
+            <Section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40">
+                <div className="absolute inset-0 z-0">
+                    <InteractiveGrid />
+                </div>
+                
+                <div className="container relative z-10 mx-auto px-4 text-center max-w-5xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <Badge variant="outline" className="mb-8 py-1.5 px-6 border-primary/20 text-primary bg-primary/5 rounded-full font-black uppercase tracking-[0.3em] text-[10px]">
+                            <Sparkles className="w-3.5 h-3.5 mr-2" />
+                            Premium Solutions
+                        </Badge>
+                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[1.1]">
+                            Simple, Transparent <br />
+                            <span className="text-primary italic">Pricing.</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-muted-foreground/80 font-semibold mb-12 max-w-3xl mx-auto leading-relaxed">
+                            No hidden fees. No surprises. Just a world-class website that <span className="text-foreground">scales your brand</span> globally.
+                        </p>
+                    </motion.div>
                 </div>
             </Section>
 
-            {/* Value Proposition Detail */}
-            <Section className="pb-12">
-                <div className="max-w-4xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold mb-6">Why this package is perfect for <span className="text-blue-500">Growth</span></h2>
-                            <div className="space-y-6">
-                                <div>
-                                    <h3 className="font-semibold text-lg mb-2">1. Professional Design, Not Templates</h3>
-                                    <p className="text-muted-foreground">We don't just copy-paste. We design a unique website that matches your brand identity and appeals to your specific target audience.</p>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lg mb-2">2. Built for Google (SEO Ready)</h3>
-                                    <p className="text-muted-foreground">A pretty website is useless if no one finds it. We structure your site with proper H1 tags, meta descriptions, and clean code so Google loves it.</p>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lg mb-2">3. Speed & Security Included</h3>
-                                    <p className="text-muted-foreground">Slow sites lose customers. We host your site on premium SSD servers and secure it with SSL to ensure it loads fast and stays safe.</p>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lg mb-2">4. You Own Everything</h3>
-                                    <p className="text-muted-foreground">Unlike Wix or Shopify where you rent your site, with us, you own your domain, hosting account, and all website files. You have full control.</p>
-                                </div>
+            {/* Value Bento Grid */}
+            <Section className="py-24 bg-[var(--background-alt)]">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div className="md:col-span-2 space-y-6">
+                            <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-8">
+                                Why Our Packages <br />
+                                Deliver <span className="text-primary italic">Growth.</span>
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {valueBlock.slice(0, 2).map((item, i) => (
+                                    <Card key={item.title} className="bg-background/40 backdrop-blur-md border-border/40 p-8 rounded-[2rem] hover:shadow-xl hover:border-primary/20 transition-all group">
+                                        <div className={`h-12 w-12 rounded-xl bg-${item.color}-500/10 flex items-center justify-center mb-6 text-${item.color}-600 group-hover:scale-110 transition-transform`}>
+                                            <item.icon className="h-6 w-6" />
+                                        </div>
+                                        <h3 className="text-xl font-black mb-3">{item.title}</h3>
+                                        <p className="text-muted-foreground text-sm font-semibold leading-relaxed">{item.desc}</p>
+                                    </Card>
+                                ))}
                             </div>
                         </div>
-                        <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800">
-                            <h3 className="text-xl font-bold mb-4 text-white">What happens after 1 year?</h3>
-                            <p className="text-slate-400 mb-6">
-                                Transparency is our core value. The ₹14,999 price covers everything for the first 12 months.
-                            </p>
-                            <ul className="space-y-4">
-                                <li className="flex gap-3 text-slate-300">
-                                    <div className="h-6 w-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">1</div>
-                                    <span><strong>Domain Renewal:</strong> Approx. ₹1,000 / year (paid to provider)</span>
-                                </li>
-                                <li className="flex gap-3 text-slate-300">
-                                    <div className="h-6 w-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">2</div>
-                                    <span><strong>Hosting Renewal:</strong> Approx. ₹3,000 - ₹4,000 / year (paid to provider)</span>
-                                </li>
-                                <li className="flex gap-3 text-slate-300">
-                                    <div className="h-6 w-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">3</div>
-                                    <span><strong>Our Support:</strong> Optional. You can manage it yourself or hire us for maintenance.</span>
-                                </li>
-                            </ul>
+                        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {valueBlock.slice(2, 4).map((item, i) => (
+                                <Card key={item.title} className="bg-background/40 backdrop-blur-md border-border/40 p-8 rounded-[2rem] hover:shadow-xl hover:border-primary/20 transition-all group">
+                                    <div className={`h-12 w-12 rounded-xl bg-${item.color}-500/10 flex items-center justify-center mb-6 text-${item.color}-600 group-hover:scale-110 transition-transform`}>
+                                        <item.icon className="h-6 w-6" />
+                                    </div>
+                                    <h3 className="text-xl font-black mb-3">{item.title}</h3>
+                                    <p className="text-muted-foreground text-sm font-semibold leading-relaxed">{item.desc}</p>
+                                </Card>
+                            ))}
+                            <Card className="md:col-span-2 bg-slate-950 p-8 rounded-[2.5rem] border-none shadow-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2" />
+                                <div className="relative z-10">
+                                    <h3 className="text-xl font-black text-white mb-6">What happens after 1 year?</h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                        {[
+                                            { label: "Domain Renewal", price: "± ₹1,000 /yr" },
+                                            { label: "Hosting Renewal", price: "± ₹3k - ₹4k /yr" },
+                                            { label: "Maintenance", price: "Optional Support" }
+                                        ].map((item, i) => (
+                                            <div key={item.label} className="space-y-1">
+                                                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/80">{item.label}</div>
+                                                <div className="text-slate-200 font-bold">{item.price}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </Card>
                         </div>
                     </div>
                 </div>
             </Section>
 
-            {/* Pricing Packages */}
-            <Section>
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Choose Your Package</h2>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {/* Basic Package */}
-                        <Card className="border-slate-700 shadow-xl overflow-hidden">
-                            <div className="bg-gradient-to-r from-slate-700 to-slate-600 p-6 text-center text-white">
-                                <h3 className="text-2xl font-bold">Essential Package</h3>
-                                <p className="opacity-90 mt-2">Perfect for small businesses</p>
-                            </div>
-                            <div className="p-8">
-                                <div className="text-center mb-6">
-                                    <div className="text-4xl font-bold text-foreground">{formatPrice(9999)}</div>
-                                    <div className="text-muted-foreground text-sm">All-inclusive for 1st year</div>
-                                </div>
-                                <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
-                                <ul className="space-y-3 mb-6">
-                                    {basicPackageFeatures.map((feature) => (
-                                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                            <Check className="h-5 w-5 text-[var(--theme-text)] dark:text-[var(--theme-text-dark)] shrink-0" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Button size="lg" className="w-full" variant="outline" asChild>
-                                    <Link href="/contact">Get Started</Link>
-                                </Button>
-                                <p className="text-xs text-muted-foreground mt-4 text-center">
-                                    Pay only after you approve the design.
-                                </p>
-                            </div>
-                        </Card>
-
-                        {/* Premium Package */}
-                        <Card className="border-primary shadow-xl overflow-hidden relative">
-                            <div className="absolute top-4 right-4 z-10">
-                                <Badge className="bg-blue-500 text-white">Most Popular</Badge>
-                            </div>
-                            <div className="bg-gradient-to-r from-[var(--theme-gradient-start)] to-[var(--theme-gradient-end)] p-6 text-center text-slate-900">
-                                <h3 className="text-2xl font-bold">Starter Growth Package</h3>
-                                <p className="opacity-90 mt-2">Everything you need to get online professionally</p>
-                            </div>
-                            <div className="p-8">
-                                <div className="text-center mb-6">
-                                    <div className="text-4xl font-bold text-foreground">{formatPrice(14999)}</div>
-                                    <div className="text-muted-foreground text-sm">All-inclusive for 1st year</div>
-                                </div>
-                                <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
-
-                                {/* Premium Features Highlight */}
-                                <div className="mb-6 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg">
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <Badge className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">Premium Features</Badge>
+            {/* Pricing Elite Cards */}
+            <Section className="py-32">
+                <div className="container mx-auto px-4 max-w-7xl">
+                    <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-center mb-24">Compare Our <span className="text-primary italic">Solutions.</span></h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        {/* Essential Package */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <Card className="h-full border-border/60 bg-background/50 backdrop-blur-xl rounded-[3rem] overflow-hidden hover:shadow-2xl transition-all duration-700">
+                                <div className="p-12 pb-0">
+                                    <Badge variant="secondary" className="mb-6 bg-muted/50 text-muted-foreground/80 px-4 py-1 rounded-full font-black text-[10px] tracking-[0.2em] uppercase">Startups & Personal</Badge>
+                                    <h3 className="text-4xl font-black tracking-tighter mb-4 text-foreground">Essential Package</h3>
+                                    <div className="flex items-baseline gap-2 mb-8">
+                                        <span className="text-6xl font-black text-foreground tracking-tighter">{formatPrice(9999)}</span>
+                                        <span className="text-muted-foreground font-semibold text-sm uppercase tracking-widest">/ 1st Year</span>
                                     </div>
-                                    <ul className="space-y-4">
-                                        {mainPackagePremiumFeatures.map((feature) => (
-                                            <li key={feature.name} className="">
-                                                <div className="flex items-start gap-2">
-                                                    <Check className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
-                                                    <div>
-                                                        <div className="font-semibold text-foreground">{feature.name}</div>
-                                                        <div className="text-xs text-muted-foreground mt-1">{feature.description}</div>
-                                                    </div>
+                                    <Button size="lg" className="w-full h-16 rounded-full bg-foreground text-background font-black text-lg hover:bg-slate-800 transition-all mb-4" asChild>
+                                        <Link href="/contact">Get Started Now</Link>
+                                    </Button>
+                                    <p className="text-[10px] text-center text-muted-foreground font-black uppercase tracking-widest mb-12">No Risk. High Reward.</p>
+                                </div>
+                                <div className="p-12 pt-0 bg-muted/20 border-t border-border/40">
+                                    <div className="text-[11px] font-black uppercase tracking-[0.3em] text-primary mb-8">Detailed Blueprint:</div>
+                                    <ul className="grid grid-cols-1 gap-y-4">
+                                        {basicPackageFeatures.map((feature) => (
+                                            <li key={feature} className="flex items-start gap-3 group">
+                                                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-all">
+                                                    <Check className="h-3 w-3" />
                                                 </div>
+                                                <span className="text-sm font-semibold text-muted-foreground/90 group-hover:text-foreground transition-colors leading-tight">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
+                            </Card>
+                        </motion.div>
 
-                                {/* Standard Features */}
-                                <ul className="space-y-3 mb-6">
-                                    {mainPackageStandardFeatures.map((feature) => (
-                                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                            <Check className="h-5 w-5 text-[var(--theme-text)] dark:text-[var(--theme-text-dark)] shrink-0" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Button size="lg" className="w-full" asChild>
-                                    <Link href="/contact">Get Started</Link>
-                                </Button>
-                                <p className="text-xs text-muted-foreground mt-4 text-center">
-                                    Pay only after you approve the design.
-                                </p>
-                            </div>
-                        </Card>
+                        {/* Starter Growth Package */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <Card className="h-full border-primary/20 bg-background/50 backdrop-blur-xl rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/10 relative group">
+                                <div className="absolute top-8 right-8 z-20">
+                                    <Badge className="bg-primary text-primary-foreground font-black px-6 py-2 rounded-full shadow-lg text-[10px] tracking-widest uppercase">Elite Growth</Badge>
+                                </div>
+                                
+                                <div className="p-12 pb-0">
+                                    <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary px-4 py-1 rounded-full font-black text-[10px] tracking-[0.2em] uppercase">Growing Brands</Badge>
+                                    <h3 className="text-4xl font-black tracking-tighter mb-4 text-foreground">Growth Package</h3>
+                                    <div className="flex items-baseline gap-2 mb-8">
+                                        <span className="text-6xl font-black text-foreground tracking-tighter">{formatPrice(14999)}</span>
+                                        <span className="text-muted-foreground font-semibold text-sm uppercase tracking-widest">/ 1st Year</span>
+                                    </div>
+                                    <Button size="lg" className="w-full h-16 rounded-full bg-primary text-primary-foreground font-black text-lg hover:scale-[1.02] shadow-xl shadow-primary/20 transition-all mb-4" asChild>
+                                        <Link href="/contact">Scale My Business</Link>
+                                    </Button>
+                                    <p className="text-[10px] text-center text-primary font-black uppercase tracking-widest mb-12 animate-pulse">Most Preferred Solution</p>
+                                </div>
+                                
+                                <div className="p-12 pt-0 bg-primary/[0.03] border-t border-primary/10">
+                                    {/* Premium Power Grid */}
+                                    <div className="mb-12 p-6 bg-primary/5 rounded-[2rem] border border-primary/10 shadow-inner">
+                                        <div className="text-[11px] font-black uppercase tracking-[0.3em] text-primary mb-6">Power Injected:</div>
+                                        <div className="space-y-6">
+                                            {mainPackagePremiumFeatures.map((f) => (
+                                                <div key={f.name} className="flex gap-4">
+                                                    <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 border border-primary/10">
+                                                        <Zap className="w-5 h-5" />
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-sm font-black text-foreground">{f.name}</div>
+                                                        <div className="text-[11px] text-muted-foreground font-semibold leading-relaxed mt-1">{f.description}</div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-8">Standard Fundamentals:</div>
+                                    <ul className="grid grid-cols-1 gap-y-4">
+                                        {mainPackageStandardFeatures.map((feature) => (
+                                            <li key={feature} className="flex items-start gap-3 group">
+                                                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-all">
+                                                    <Check className="h-3 w-3" />
+                                                </div>
+                                                <span className="text-sm font-semibold text-muted-foreground/90 group-hover:text-foreground transition-colors leading-tight">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </Card>
+                        </motion.div>
                     </div>
                 </div>
             </Section>
 
-            {/* Add-ons */}
-            <Section className="bg-muted/20">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Optional Add-Ons</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {addOns.map((addon) => (
-                            <Card key={addon.name} className="flex flex-col">
-                                <CardHeader>
-                                    <CardTitle>{addon.name}</CardTitle>
-                                    <CardDescription>{addon.description}</CardDescription>
-                                </CardHeader>
-                                <CardContent className="mt-auto">
-                                    <div className="text-2xl font-bold">
-                                        {addon.price} <span className="text-sm font-normal text-muted-foreground">{addon.unit}</span>
+            {/* Strategic Add-ons */}
+            <Section className="py-32 bg-[var(--background-alt)]">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">Strategic <span className="text-primary italic">Add-ons.</span></h2>
+                        <p className="text-xl text-muted-foreground/80 font-bold">Custom power-ups to perfectly tailor your new identity.</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {addOns.map((addon, i) => (
+                            <motion.div
+                                key={addon.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                            >
+                                <Card className="p-10 rounded-[2.5rem] border-border/40 bg-background/50 backdrop-blur-xl h-full flex flex-col hover:shadow-2xl transition-all group">
+                                    <div className="h-14 w-14 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-8 border border-primary/10 group-hover:bg-primary group-hover:text-white transition-all">
+                                        <addon.icon className="w-7 h-7" />
                                     </div>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button variant="outline" className="w-full" asChild>
-                                        <Link href="/contact">Inquire</Link>
-                                    </Button>
-                                </CardFooter>
-                            </Card>
+                                    <h3 className="text-2xl font-black mb-3">{addon.name}</h3>
+                                    <p className="text-muted-foreground font-semibold text-sm leading-relaxed mb-8">{addon.description}</p>
+                                    <div className="mt-auto space-y-6">
+                                        <div className="text-3xl font-black text-foreground">
+                                            {addon.price} <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">/ {addon.unit}</span>
+                                        </div>
+                                        <Button variant="outline" className="w-full h-12 rounded-full border-primary/20 hover:bg-primary hover:text-white transition-all font-black text-xs uppercase tracking-widest" asChild>
+                                            <Link href="/contact">Add to Identity</Link>
+                                        </Button>
+                                    </div>
+                                </Card>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
             </Section>
 
-            {/* Maintenance Plans Removed as per request */}
+            {/* Content Injection: Detailed Final CTA */}
+            <Section className="py-32">
+                <div className="max-w-5xl mx-auto text-center px-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="bg-slate-950 rounded-[4rem] p-16 md:p-24 relative overflow-hidden shadow-2xl shadow-primary/20"
+                    >
+                        <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+                        
+                        <div className="relative z-10 space-y-10">
+                            <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-white leading-tight">
+                                Ready for a Clean <br />
+                                <span className="bg-gradient-to-r from-amber-200 via-primary to-indigo-300 text-transparent bg-clip-text italic">Digital Start?</span>
+                            </h2>
+                            <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mx-auto leading-relaxed">
+                                Join hundreds of businesses worldwide that trust Emerging Web Solutions for their <span className="text-white underline decoration-primary decoration-2 underline-offset-8">high-performance journey</span>. Pay only after you are 100% happy.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-6 pt-6">
+                                <Button size="lg" className="h-16 px-12 text-xl rounded-full bg-primary text-white font-black hover:scale-[1.03] shadow-2xl transition-all" asChild>
+                                    <Link href="/contact">Claim My Website Package</Link>
+                                </Button>
+                                <Button size="lg" variant="outline" className="h-16 px-12 text-xl rounded-full border-white/10 bg-white/5 text-white font-black hover:bg-white/10 transition-all group" asChild>
+                                    <Link href="https://wa.me/918688440114" className="flex items-center gap-2">
+                                        Chat with Founders <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-all" />
+                                    </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </Section>
         </div>
     )
 }
+

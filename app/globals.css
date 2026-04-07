@@ -6,64 +6,56 @@
 }
 
 :root {
-  /* Default Light Mode Base */
-  --background: #ffffff;
-  --foreground: #0f172a;
-  /* Slate 900 */
+  /* Premium Warm Light Mode (Ivory/Stone) */
+  --background: #fffdfa; /* Warm Ivory background */
+  --background-alt: #f9f6f2; /* Stone 50/Amber 50 blend for section alternating */
+  --foreground: #1c1917; /* Stone 950 - Deep charcoal */
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #1c1917;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #1c1917;
   --primary: #4f46e5;
-  /* Default to Blue/Indigo */
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  /* Slate 100 */
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  /* Slate 500 */
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
+  --secondary: #fafaf9; /* Stone 50 */
+  --secondary-foreground: #1c1917;
+  --muted: #f5f5f4; /* Stone 100 */
+  --muted-foreground: #57534e; /* Stone 600 */
+  --accent: #fff7ed; /* Orange 50 */
+  --accent-foreground: #1c1917;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  /* Slate 200 */
-  --input: #e2e8f0;
+  --border: #e7e5e4; /* Stone 200 */
+  --input: #e7e5e4;
   --ring: #4f46e5;
-  --radius: 0.5rem;
+  --radius: 1rem; /* Softer rounds */
 
-  /* Default Theme Colors (Blue/Indigo) */
-  --theme-primary: #4f46e5;
-  --theme-gradient-start: #6366f1;
-  --theme-gradient-end: #4338ca;
-  --theme-hover-start: #818cf8;
-  --theme-hover-end: #4f46e5;
-  --theme-text: #4f46e5;
-  --theme-text-dark: #312e81;
-  --theme-shadow: rgba(79, 70, 229, 0.25);
-  --theme-icon-bg: rgba(79, 70, 229, 0.1);
+  /* Enhanced Shadows - Warm & Deep */
+  --shadow-sm: 0 1px 2px 0 rgba(28, 25, 23, 0.05);
+  --shadow: 0 4px 6px -1px rgba(28, 25, 23, 0.1), 0 2px 4px -2px rgba(28, 25, 23, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(28, 25, 23, 0.1), 0 4px 6px -4px rgba(28, 25, 23, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(28, 25, 23, 0.1), 0 8px 10px -6px rgba(28, 25, 23, 0.1);
+  --shadow-warm: 0 20px 40px -10px rgba(120, 53, 15, 0.15); /* Amber-tinted shadow */
+
+  /* Theme Overrides (Warm) */
+  --glow-warm: rgba(251, 191, 36, 0.15);
+  --glow-primary: rgba(79, 70, 229, 0.1);
 }
 
 .dark {
   /* Default Dark Mode Base */
   --background: #020617;
-  /* Slate 950 */
+  --background-alt: #0f172a;
   --foreground: #f8fafc;
-  /* Slate 50 */
   --card: #0f172a;
-  /* Slate 900 */
   --card-foreground: #f8fafc;
   --popover: #0f172a;
   --popover-foreground: #f8fafc;
   --primary: #4f46e5;
   --primary-foreground: #ffffff;
   --secondary: #1e293b;
-  /* Slate 800 */
   --secondary-foreground: #f8fafc;
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
-  /* Slate 400 */
   --accent: #1e293b;
   --accent-foreground: #f8fafc;
   --destructive: #7f1d1d;
@@ -72,17 +64,12 @@
   --input: #1e293b;
   --ring: #4f46e5;
 
-  /* Dark Theme Colors (Blue/Indigo) */
-  --theme-primary: #4f46e5;
-  --theme-gradient-start: #6366f1;
-  --theme-gradient-end: #4338ca;
-  --theme-hover-start: #818cf8;
-  --theme-hover-end: #4f46e5;
-  --theme-text: #818cf8;
-  --theme-text-dark: #c7d2fe;
-  --theme-shadow: rgba(79, 70, 229, 0.5);
-  --theme-icon-bg: rgba(79, 70, 229, 0.1);
+  /* Global Shadow for Dark Mode */
+  --shadow-warm: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
 }
+
+
+/* Texture Utilities - Removed on User Request for Simplification */
 
 /* Theme Overrides */
 

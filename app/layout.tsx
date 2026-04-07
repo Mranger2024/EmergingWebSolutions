@@ -14,14 +14,34 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://emergingwebsolutions.in'),
-  title: "Emerging Web Solutions | Professional Websites for ₹14,999",
-  description: "Get a custom WordPress website with domain, hosting, and SSL for just ₹14,999. Pay only after you are 100% happy. Ideal for small businesses in India.",
-  keywords: ["web design", "wordpress agency", "website development", "small business website", "pay after delivery"],
+  title: "Emerging Web Solutions | Global Web Agency | Websites for ₹14,999 / $199",
+  description: "Get a custom WordPress website with domain, hosting, and SSL. Worldwide service with flat pricing. Pay only after you are 100% happy. Ideal for businesses globally.",
+  keywords: ["web design", "wordpress agency", "website development", "small business website", "pay after delivery", "global web development", "affordable websites"],
   openGraph: {
-    title: "Emerging Web Solutions | Professional Websites for ₹14,999",
-    description: "Risk-free website development. We build first, you pay later.",
+    title: "Emerging Web Solutions | Global Web Development Partners",
+    description: "Risk-free website development. We build your completo demo first, you pay later. Serving clients worldwide.",
     type: "website",
-    locale: "en_IN",
+    locale: "en_US",
+    siteName: "Emerging Web Solutions",
+    images: [
+      {
+        url: "/og/home-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Emerging Web Solutions - Global Web Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Emerging Web Solutions | Global Web Agency",
+    description: "Premium websites with no upfront cost. We build it, you approve it, then you pay.",
+    images: ["/og/home-og.png"],
+    creator: "@EmergingWebSol",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -45,7 +65,7 @@ export default function RootLayout({
       >
         <PostHogProvider>
           <PricingProvider>
-            <ThemeProvider defaultTheme="blue" defaultMode="dark" storageKey="webdevagency-theme">
+            <ThemeProvider defaultTheme="blue" defaultMode="light" storageKey="webdevagency-theme">
               <StructuredData />
               <Header />
               <main className="flex-1">{children}</main>

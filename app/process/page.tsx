@@ -1,19 +1,15 @@
+"use client"
+
+import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Section } from "@/components/ui/section"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { CheckCircle2, MessageSquare, MonitorPlay, PenTool, Rocket, ShieldCheck } from "lucide-react"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-    title: "Our Process | How We Build Your Website Risk-Free",
-    description: "Understand our unique 'Pay After Delivery' process. We build your website on our server first, so you can see it before you pay.",
-    openGraph: {
-        title: "Our Process | How We Build Your Website Risk-Free",
-        description: "Understand our unique 'Pay After Delivery' process. We build your website on our server first, so you can see it before you pay.",
-    }
-}
+import { motion } from "framer-motion"
+import { CheckCircle2, MessageSquare, MonitorPlay, PenTool, Rocket, ShieldCheck, Sparkles, ArrowRight, Zap } from "lucide-react"
+import InteractiveGrid from "@/components/ui/InteractiveGrid"
+import { FAQSchema } from "@/components/seo/faq-schema"
 
 const steps = [
     {
@@ -87,70 +83,129 @@ const faqs = [
     },
 ]
 
-import { FAQSchema } from "@/components/seo/faq-schema"
-
 export default function ProcessPage() {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-background">
             <FAQSchema faqs={faqs} />
-            <Section className="bg-muted/30 pt-24 pb-12">
-                <div className="text-center max-w-3xl mx-auto">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-                        How It Works
-                    </h1>
-                    <p className="text-lg text-muted-foreground">
-                        We've flipped the traditional agency model. We take the risk, you get the peace of mind.
-                    </p>
+            
+            {/* Hero Section */}
+            <Section className="relative pt-32 pb-20 overflow-hidden border-b border-border/40">
+                <div className="absolute inset-0 z-0">
+                    <InteractiveGrid />
+                </div>
+                
+                <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <Badge variant="outline" className="mb-8 py-1.5 px-6 border-primary/20 text-primary bg-primary/5 rounded-full font-black uppercase tracking-[0.3em] text-[10px]">
+                            <Zap className="w-3.5 h-3.5 mr-2" />
+                            Success Roadmap
+                        </Badge>
+                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[1.1]">
+                            How It <span className="text-primary italic">Works.</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-muted-foreground/80 font-semibold mb-12 max-w-3xl mx-auto leading-relaxed">
+                            We've flipped the traditional agency model. We take <span className="text-foreground">all the risk</span>—so you can focus on building your empire.
+                        </p>
+                    </motion.div>
                 </div>
             </Section>
 
-            <Section>
-                <div className="max-w-4xl mx-auto">
-                    <div className="space-y-12">
+            {/* Process Grid (Detailed) */}
+            <Section className="py-32">
+                <div className="container mx-auto px-4 max-w-7xl">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative">
                         {steps.map((step, index) => (
-                            <div key={step.id} className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
-                                <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-full bg-[var(--theme-icon-bg)] text-[var(--theme-text)] dark:text-[var(--theme-text-dark)] font-bold text-2xl border-4 border-background shadow-sm z-10">
-                                    {step.id}
+                            <motion.div 
+                                key={step.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.15 }}
+                                className="relative group"
+                            >
+                                {/* Step Backdrop Number */}
+                                <div className="absolute -top-12 -left-6 text-[11rem] font-black text-muted-foreground/5 dark:text-muted-foreground/[0.03] select-none group-hover:text-primary transition-colors duration-700 leading-none">
+                                    0{step.id}
                                 </div>
-                                <div className="flex-grow pt-2">
-                                    <h3 className="text-2xl font-bold mb-2 flex items-center gap-3">
-                                        {step.title}
-                                        <step.icon className="h-6 w-6 text-muted-foreground" />
-                                    </h3>
-                                    <p className="text-lg text-muted-foreground">
-                                        {step.description}
-                                    </p>
+                                
+                                <div className="relative z-10 bg-background/50 backdrop-blur-xl border border-border/40 p-10 rounded-[3rem] shadow-xl hover:shadow-primary/5 transition-all h-full">
+                                    <div className="h-14 w-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 border border-primary/10 group-hover:bg-primary group-hover:text-white transition-all shadow-inner">
+                                        <step.icon className="h-7 w-7" />
+                                    </div>
+                                    <h3 className="text-2xl font-black tracking-tighter mb-4">{step.title}</h3>
+                                    <p className="text-muted-foreground/80 font-semibold leading-relaxed text-base">{step.description}</p>
                                 </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </Section>
+
+            {/* FAQ Knowledge Matrix */}
+            <Section className="bg-[var(--background-alt)] py-32 border-y border-border/40">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <div className="text-center mb-24">
+                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">Common <span className="text-primary italic">Questions.</span></h2>
+                        <p className="text-xl text-muted-foreground/80 font-bold max-w-2xl mx-auto">Everything you need to know about our risk-free partnership.</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {faqs.map((faq, i) => (
+                            <motion.div
+                                key={faq.question}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.05 }}
+                            >
+                                <Card className="bg-background border-border/60 p-8 rounded-[2.5rem] h-full shadow-sm hover:shadow-md transition-all group">
+                                    <h3 className="text-lg font-black tracking-tight mb-4 text-foreground group-hover:text-primary transition-colors">{faq.question}</h3>
+                                    <p className="text-muted-foreground font-semibold leading-relaxed text-sm">{faq.answer}</p>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </Section>
+
+            {/* CTA Overhaul */}
+            <Section className="py-32">
+                <div className="max-w-5xl mx-auto text-center px-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="bg-slate-950 rounded-[4rem] p-16 md:p-24 relative overflow-hidden shadow-2xl shadow-primary/20"
+                    >
+                        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/15 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+                        
+                        <div className="relative z-10 space-y-10">
+                            <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-white leading-tight">
+                                Ready for a <br />
+                                <span className="bg-gradient-to-r from-amber-200 via-primary to-indigo-300 text-transparent bg-clip-text italic">Digital Start?</span>
+                            </h2>
+                            <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mx-auto leading-relaxed">
+                                Join hundreds of businesses worldwide that trust Emerging Web Solutions for their <span className="text-white underline decoration-primary decoration-2 underline-offset-8">high-performance journey</span>. Pay only after you are 100% happy.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-6 pt-6">
+                                <Button size="lg" className="h-16 px-12 text-xl rounded-full bg-primary text-white font-black hover:scale-[1.03] shadow-2xl transition-all" asChild>
+                                    <Link href="/contact">Start Your Free Project</Link>
+                                </Button>
+                                <Button size="lg" variant="outline" className="h-16 px-12 text-xl rounded-full border-white/10 bg-white/5 text-white font-black hover:bg-white/10 transition-all group" asChild>
+                                    <Link href="https://wa.me/918688440114" className="flex items-center gap-2">
+                                        Chat with Founders <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-all" />
+                                    </Link>
+                                </Button>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    </motion.div>
                 </div>
-            </Section>
-
-            <Section className="bg-muted/20">
-                <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-10">Common Questions</h2>
-                    <div className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <Card key={index}>
-                                <CardHeader>
-                                    <CardTitle className="text-lg">{faq.question}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">{faq.answer}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </Section>
-
-            <Section className="text-center">
-                <h2 className="text-3xl  font-bold mb-6">Ready to start?</h2>
-                <Button size="lg" asChild className="text-base text-[var(--theme-text-dark)] px-8">
-                    <Link href="/contact">Start Your Free Project</Link>
-                </Button>
             </Section>
         </div>
     )
 }
+

@@ -3,12 +3,17 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Web Design Services & Pricing | Emerging Web Solutions',
+    title: 'Web Design Packages & Pricing | ₹9,999 / $149 | Emerging Web Solutions',
     description:
-        'Affordable web design packages from ₹9,999. Choose Essential or Starter Growth. Includes domain, hosting, SEO, and professional design.',
+        'Affordable, all-inclusive web design packages serving clients worldwide. Choose from Essential (₹9,999 / $149) or Starter Growth (₹14,999 / $199). Includes domain, hosting, and SEO.',
     openGraph: {
-        title: 'Web Design Services & Pricing | Emerging Web Solutions',
+        title: 'Professional Web Design Packages | Emerging Web Solutions',
         description:
-            'Affordable web design packages from ₹9,999. Choose Essential or Starter Growth. Includes domain, hosting, SEO, and professional design.',
+            'All-inclusive web design starting at $149 USD. No upfront payment. We build it, you approve it, then you pay.',
+        images: ['/og/services-og.png'],
     },
+    twitter: {
+        card: 'summary_large_image',
+        images: ['/og/services-og.png'],
+    }
 }
