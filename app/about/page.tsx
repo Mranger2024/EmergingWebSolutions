@@ -62,11 +62,11 @@ export default function AboutPage() {
                                 <Sparkles className="w-3.5 h-3.5 mr-2" />
                                 Our Mission
                             </Badge>
-                            <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[1.1]">
+                            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[1.1]">
                                 We Build IT. <br />
                                 <span className="text-primary italic">You Approve IT.</span>
                             </h1>
-                            <p className="text-xl md:text-2xl text-muted-foreground/80 font-semibold max-w-2xl leading-relaxed">
+                            <p className="text-lg md:text-2xl text-muted-foreground/80 font-semibold max-w-2xl leading-relaxed">
                                 We're a team that believes in <span className="text-foreground">honest work</span>. We build your website first, and you only pay after you're 100% happy with it. It's that simple.
                             </p>
                         </motion.div>
@@ -84,11 +84,11 @@ export default function AboutPage() {
                         transition={{ duration: 0.8 }}
                         className="space-y-8"
                     >
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter">
+                        <h2 className="text-3xl md:text-6xl font-black tracking-tighter">
                             Why we started <br />
                             <span className="text-muted-foreground/40 italic">this journey.</span>
                         </h2>
-                        <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed font-medium">
+                        <div className="space-y-6 text-base md:text-xl text-muted-foreground leading-relaxed font-medium">
                             <p>
                                 We saw a big problem in the web industry. Business owners were paying thousands of dollars upfront for websites they never liked, or worse, never received.
                             </p>
@@ -148,13 +148,13 @@ export default function AboutPage() {
                                 transition={{ delay: i * 0.1 }}
                             >
                                 <Card className="h-full border-border/40 bg-background/50 backdrop-blur-xl hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 rounded-[2rem] group">
-                                    <CardContent className="p-10 flex flex-col items-start gap-6">
+                                    <CardContent className="p-8 md:p-10 flex flex-col items-start gap-6">
                                         <div className={`p-4 rounded-2xl ${value.bg} ${value.color} group-hover:scale-110 transition-transform duration-500`}>
-                                            <value.icon className="h-8 w-8" />
+                                            <value.icon className="h-6 w-6 md:h-8 md:w-8" />
                                         </div>
                                         <div className="space-y-3">
                                             <h3 className="text-xl font-black tracking-tight">{value.name}</h3>
-                                            <p className="text-muted-foreground font-medium leading-relaxed">{value.description}</p>
+                                            <p className="text-sm md:text-base text-muted-foreground font-medium leading-relaxed">{value.description}</p>
                                         </div>
                                     </CardContent>
                                 </Card>
@@ -165,7 +165,7 @@ export default function AboutPage() {
             </Section>
 
             {/* Final CTA */}
-            <Section className="py-32">
+            <Section className="py-24 md:py-32 pb-48 md:pb-32">
                 <div className="max-w-4xl mx-auto text-center space-y-12">
                     <div className="bg-primary/5 p-4 rounded-full w-fit mx-auto animate-pulse">
                         <ShieldCheck className="w-12 h-12 text-primary" />

@@ -36,7 +36,7 @@ export function Hero() {
 
     return (
         <Section
-            className="relative flex flex-col items-center justify-center overflow-hidden bg-background text-foreground pt-4 md:pt-12 min-h-[70vh] md:min-h-0"
+            className="relative flex flex-col items-center justify-center overflow-hidden bg-background text-foreground pt-20  min-h-[70vh] md:min-h-0"
             ref={heroRef}
             onMouseMove={handleMouseMove}
         >
@@ -117,14 +117,14 @@ export function Hero() {
                     className="max-w-4xl mx-auto space-y-4"
                 >
                     {/* Unified Premium Headline */}
-                    <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground relative z-10 leading-[1.1]">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-foreground relative z-10 leading-[1.1]">
                         Modern Digital Experiences. <br />
                         <span className="bg-gradient-to-r from-amber-500 via-primary to-indigo-500 text-transparent bg-clip-text italic">
                             Built First. Paid After.
                         </span>
                     </h1>
 
-                    <p className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed relative z-10">
+                    <p className="text-sm md:text-lg text-muted-foreground/80 max-w-2xl mx-auto font-medium leading-relaxed relative z-10">
                         We architect high-performance websites for businesses worldwide. No upfront risk. Pay only when you are <span className="text-foreground font-black underline decoration-amber-500/30 decoration-2 underline-offset-4">100% happy</span>.
                     </p>
 
@@ -132,7 +132,7 @@ export function Hero() {
                         <MagneticButton>
                             <Button
                                 size="lg"
-                                className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/95 shadow-xl shadow-primary/20 border-0 transition-all duration-300 hover:scale-105 text-primary-foreground font-black group"
+                                className="h-12 md:h-14 px-8 text-base md:text-lg rounded-full bg-primary hover:bg-primary/95 shadow-xl shadow-primary/20 border-0 transition-all duration-300 hover:scale-105 text-primary-foreground font-black group w-full sm:w-auto"
                                 asChild
                             >
                                 <Link href="/contact" className="flex items-center gap-2 tracking-tight">
@@ -146,7 +146,7 @@ export function Hero() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="h-14 px-8 text-lg rounded-full border-border bg-background/30 backdrop-blur-md hover:bg-muted text-foreground transition-all duration-300 font-black tracking-tight"
+                                className="h-12 md:h-14 px-8 text-base md:text-lg rounded-full border-border bg-background/30 backdrop-blur-md hover:bg-muted text-foreground transition-all duration-300 font-black tracking-tight w-full sm:w-auto"
                                 asChild
                             >
                                 <Link href="/portfolio">Explore Demos</Link>
@@ -164,8 +164,8 @@ export function Hero() {
                 <div className="flex w-full overflow-hidden mask-linear-gradient">
                     <motion.div
                         animate={{ x: [0, -1000] }}
-                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                        className="flex items-center whitespace-nowrap gap-16 md:gap-24 px-8"
+                        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                        className="flex items-center whitespace-nowrap gap-12 md:gap-24 px-8"
                     >
                         {[...brands, ...brands, ...brands].map((brand, index) => (
                             <div

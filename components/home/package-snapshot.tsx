@@ -48,11 +48,11 @@ export function PackageSnapshot() {
     return (
         <Section ref={sectionRef} className="relative overflow-hidden py-32">
             {/* Decorative background elements for depth */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[var(--background-alt)] opacity-30 pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-full bg-muted/30 opacity-30 pointer-events-none" />
             <div className="absolute -top-48 -right-48 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] opacity-50 pointer-events-none" />
             <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] opacity-50 pointer-events-none" />
             
-            <div className="container px-4 md:px-6 mx-auto relative z-10">
+            <div className="container px-1 md:px-6 mx-auto relative z-10">
                 <div className="flex flex-col items-center text-center mb-24">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -78,7 +78,7 @@ export function PackageSnapshot() {
                         viewport={{ once: true }}
                         className="group flex flex-col h-full"
                     >
-                        <div className="bg-card border border-border/60 rounded-[3rem] p-4 h-full flex flex-col hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2">
+                        <div className="bg-card border border-border/60 rounded-[3rem] p-2 h-full flex flex-col hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2">
                             <div className="relative h-56 w-full rounded-[2.5rem] overflow-hidden mb-8 bg-muted shadow-inner">
                                 <img
                                     src="/essential-abstract.png"
@@ -138,13 +138,13 @@ export function PackageSnapshot() {
                         viewport={{ once: true }}
                         className="group flex flex-col h-full lg:-translate-y-8 z-20"
                     >
-                        <div className="bg-white dark:bg-slate-900 border-2 border-primary rounded-[3.5rem] p-5 h-full flex flex-col shadow-2xl shadow-primary/30 relative">
+                        <div className="bg-card border-2 border-primary rounded-[3.5rem] p-5 h-full flex flex-col shadow-2xl shadow-primary/20 relative overflow-hidden group/card transition-all duration-500">
                             <div className="bg-gradient-to-r from-primary via-indigo-600 to-amber-500 text-white text-[11px] font-black uppercase tracking-[0.4em] py-3 px-8 text-center rounded-[2rem] mb-6 shadow-xl shadow-primary/30 most-popular-badge transform -translate-y-12 mx-4 absolute top-0 left-0 right-0">
                                 Global Bestseller
                             </div>
                             <div className="relative h-64 w-full rounded-[2.5rem] overflow-hidden mb-8 mt-4 bg-primary/5 shadow-inner">
                                 <img
-                                    src="/growth-abstract.png"
+                                    src="/agency_growth_abstract_split_hero_1775552056865.png"
                                     alt="Growth Package Illustration"
                                     className="h-full w-full object-cover transition-all duration-700 group-hover:scale-115 group-hover:rotate-1"
                                     onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800"; }}
@@ -167,7 +167,7 @@ export function PackageSnapshot() {
                                         <Zap className="w-6 h-6 text-primary animate-pulse opacity-20" />
                                     </div>
                                     <div className="flex items-baseline gap-1">
-                                        <span className="text-6xl font-black text-foreground tracking-tighter">{formatPrice(14999)}</span>
+                                        <span className="text-4xl md:text-6xl font-black text-foreground tracking-tighter">{formatPrice(14999)}</span>
                                         <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">/ flat</span>
                                     </div>
                                     <p className="mt-3 text-[10px] font-black text-primary flex items-center gap-2 uppercase tracking-[0.2em]">
@@ -187,10 +187,10 @@ export function PackageSnapshot() {
                                 </ul>
                             </div>
                             <div className="px-6 pb-6 mt-auto">
-                                <Button asChild size="lg" className="w-full h-16 rounded-[2rem] bg-muted/50 hover:bg-primary hover:text-primary-foreground text-foreground border border-border/50 hover:border-primary font-black text-lg shadow-none transition-all active:scale-95">
-                                    <Link href="/contact" className="flex items-center justify-center text-black gap-3">
+                                <Button asChild size="lg" className="w-full h-16 rounded-[2rem] bg-primary hover:bg-primary/90 text-primary-foreground font-black text-lg shadow-xl shadow-primary/20 transition-all active:scale-95 border-0">
+                                    <Link href="/contact" className="flex items-center justify-center gap-3">
                                         Select Growth
-                                        <ArrowRight className="w-7 h-7 group-hover/btn:translate-x-2 transition-transform" />
+                                        <ArrowRight className="w-7 h-7 group-hover/card:translate-x-2 transition-transform" />
                                     </Link>
                                 </Button>
                                 <p className="text-center text-[10px] text-muted-foreground font-black uppercase tracking-[0.3em] mt-6 opacity-60">Risk-Free • Localized Support</p>

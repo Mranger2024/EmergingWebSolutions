@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils"
 
 import { motion } from "framer-motion"
 
-import { ThemeSwitcher } from "@/components/ui/theme-switcher"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 
 const navigation = [
@@ -35,11 +34,11 @@ export function Header() {
     }, [])
 
     return (
-        <header className="sticky top-0 z-50 w-full bg-background/60 dark:bg-slate-950/80 backdrop-blur-[20px] border-b border-border/40 shadow-sm transition-all duration-500">
+        <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-[20px] border-b border-border/40 shadow-sm transition-all duration-500">
             {/* Scroll Progress Bar */}
             <div className="absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-150 ease-out z-[60]" style={{ width: `${scrollProgress}%` }} />
             
-            <div className="container flex h-20 md:h-24 items-center justify-between px-4 md:px-6 mx-auto relative z-[50]">
+            <div className="container flex h-16 md:h-24 items-center justify-between px-4 md:px-6 mx-auto relative z-[50]">
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-4 group transition-transform hover:scale-[1.02] active:scale-95 origin-left">
                         <div className="relative h-12 w-12 flex items-center justify-center">
@@ -56,8 +55,8 @@ export function Header() {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xl font-black tracking-tighter text-foreground leading-none group-hover:text-primary transition-colors">EMERGING WEB</span>
-                            <span className="text-[9px] tracking-[0.4em] font-black text-muted-foreground uppercase leading-none mt-1.5 group-hover:tracking-[0.5em] transition-all">Solutions</span>
+                            <span className="text-lg md:text-xl font-black tracking-tighter text-foreground leading-none group-hover:text-primary transition-colors">EMERGING WEB</span>
+                            <span className="text-[8px] md:text-[9px] tracking-[0.4em] font-black text-muted-foreground uppercase leading-none mt-1 group-hover:tracking-[0.5em] transition-all">Solutions</span>
                         </div>
                     </Link>
                 </div>
@@ -70,7 +69,7 @@ export function Header() {
                                 onMouseEnter={() => setHoveredIndex(idx)}
                                 className={cn(
                                     "relative z-10 text-[10px] font-black tracking-[0.2em] uppercase transition-colors duration-300",
-                                    hoveredIndex === idx ? "text-primary" : "text-muted-foreground/60"
+                                    hoveredIndex === idx ? "text-primary" : "text-foreground/60"
                                 )}
                             >
                                 {item.name}
@@ -91,10 +90,7 @@ export function Header() {
                 </nav>
 
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-6 items-center">
-                    <div className="flex items-center gap-2 bg-muted/50 p-1.5 rounded-full border border-border/50">
-                        <ThemeSwitcher />
-                        <ModeToggle />
-                    </div>
+                    <ModeToggle />
                     <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
                         <Link href="/contact">Get Started</Link>
                     </Button>
@@ -102,7 +98,7 @@ export function Header() {
                 <div className="flex lg:hidden">
                     <button
                         type="button"
-                        className="-m-2.5 inline-flex items-center justify-center rounded-xl p-2.5 text-foreground transition-colors hover:bg-muted"
+                        className="-m-1.5 inline-flex items-center justify-center rounded-xl p-2 text-foreground transition-colors hover:bg-muted"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -154,11 +150,8 @@ export function Header() {
                                 </div>
                                 <div className="py-8 space-y-6">
                                     <div className="flex items-center justify-between px-3">
-                                        <span className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Theme Options</span>
-                                        <div className="flex gap-2">
-                                            <ThemeSwitcher />
-                                            <ModeToggle />
-                                        </div>
+                                        <span className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Appearance</span>
+                                        <ModeToggle />
                                     </div>
                                     <Button asChild className="w-full h-14 text-lg font-bold rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20" onClick={() => setMobileMenuOpen(false)}>
                                         <Link href="/contact">Get Started Now</Link>
